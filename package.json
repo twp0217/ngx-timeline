@@ -1,7 +1,7 @@
 {
   "name": "ngx-timeline",
   "version": "1.0.0",
-  "description": "",
+  "description": "A timeline component for Angular 2+",
   "main": "bundles/ngx-timeline.umd.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
@@ -20,6 +20,13 @@
     "type": "git",
     "url": "git+https://github.com/twp0217/ngx-timeline.git"
   },
+  "keywords": [
+    "angular2",
+    "angular4",
+    "ngx",
+    "timeline",
+    "ngx-timeline"
+  ],
   "author": "tu.wenpan",
   "license": "MIT",
   "bugs": {
