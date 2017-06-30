@@ -1,0 +1,25 @@
+<div class="timeline">
+  <div class="timeline-item" *ngFor="let event of events; index as i">
+    <div class="timeline-date">
+      <div *ngIf="!dateTemplate">{{event.date | date:'yyyy-MM-dd'}}</div>
+      <ng-template *ngIf="dateTemplate" [ngTemplateOutlet]="dateTemplate.templateRef" [ngOutletContext]="{ $implicit: event, rowIndex: i }"></ng-template>
+    </div>
+    <div class="timeline-point" [ngClass]="{'hide-border': event.icon}">
+      <i class="fa" [ngClass]="event.icon"></i>
+    </div>
+    <div class="timeline-event">
+      <div class="timeline-header">
+        <div *ngIf="!headerTemplate">{{event.header}}</div>
+        <ng-template *ngIf="headerTemplate" [ngTemplateOutlet]="headerTemplate.templateRef" [ngOutletContext]="{ $implicit: event, rowIndex: i }"></ng-template>
+      </div>
+      <div class="timeline-body">
+        <div *ngIf="!bodyTemplate">{{event.body}}</div>
+        <ng-template *ngIf="bodyTemplate" [ngTemplateOutlet]="bodyTemplate.templateRef" [ngOutletContext]="{ $implicit: event, rowIndex: i }"></ng-template>
+      </div>
+      <div class="timeline-footer">
+        <div *ngIf="!footerTemplate">{{event.footer}}</div>
+        <ng-template *ngIf="footerTemplate" [ngTemplateOutlet]="footerTemplate.templateRef" [ngOutletContext]="{ $implicit: event, rowIndex: i }"></ng-template>
+      </div>
+    </div>
+  </div>
+</div>

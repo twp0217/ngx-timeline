@@ -1,0 +1,176 @@
+$arrow-width: 15px;
+$padding-width: 1rem;
+$background-color: #fff;
+$border-color: #ccc;
+$top-size: 10px;
+$point-size: 30px;
+$point-height-size: $point-size;
+$point-width-size: $point-size;
+
+.timeline {
+    position: relative;
+    &::before {
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        margin-left: -1px;
+        background-color: $border-color;
+        content: " ";
+    }
+    .timeline-item {
+        position: relative;
+        margin: 1rem 0;
+
+        .timeline-date {
+            box-sizing: border-box;
+            position: absolute;
+            top: $top-size;
+            left: 55%;
+            line-height: $point-height-size;
+            width: 45%;
+        }
+
+        .timeline-point {
+            box-sizing: border-box;
+            position: absolute;
+            left: 50%;
+            top: $top-size;
+            margin-left: -15px;
+            border: 1px solid $border-color;
+            border-radius: 100%;
+            text-align: center;
+            background-color: $background-color;
+            z-index: 99;
+            font-size: $point-size;
+            height: $point-height-size;
+            line-height: $point-height-size;
+            width: $point-width-size;
+
+            &.hide-border{
+                border: none;
+            }
+        }
+
+        .timeline-event {
+            box-sizing: border-box;
+            position: relative;
+            left: 0;
+            width: 45%;
+            padding: $padding-width;
+            border: 1px solid $border-color;
+            background-color: $background-color;
+            border-radius: 5px;
+
+            &::before, &::after {
+                position: absolute;
+                left: 100%;
+                top: $top-size;
+                content: " ";
+                height: 0;
+                width: 0;
+                border: 15px solid transparent;
+
+                border-left-color: $background-color;
+            }
+            &::before {
+                border-left-color: $border-color;
+                margin-left: 1px;
+            }
+            
+            .timeline-header {
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+            .timeline-body {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                color: #666;
+            }
+        }
+
+        &:nth-child(even) {
+            .timeline-date {
+                left: 0;
+                text-align: right;
+            }
+
+            .timeline-event {
+                left: 55%;
+
+                &::before, &::after {
+                    left: 0;
+                    border-left-color: transparent !important;
+
+                    border-right-color: $background-color;
+
+                    margin-left: -30px;
+                }
+                &::before {
+                    border-right-color: $border-color;
+                    margin-left: -31px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .timeline {
+        &::before {
+            left: 2%;
+        }
+
+        .timeline-item {
+            padding-top: 30px;
+            .timeline-date {
+                top: 0;
+                left: 7%;
+                width: 100%;
+            }
+            .timeline-point {
+                left: 2%;
+                top: 40px;
+            }
+
+            .timeline-event {
+                left: 7%;
+                width: 93%;
+
+                &::before, &::after {
+                    left: 0;
+                    border-left-color: transparent !important;
+
+                    border-right-color: $background-color;
+
+                    margin-left: -30px;
+                }
+                &::before {
+                    border-right-color: $border-color;
+                    margin-left: -31px;
+                }
+            }
+
+            &:nth-child(even) {
+                .timeline-date {
+                    text-align: left;
+                    left: 7%;
+                }
+                .timeline-event {
+                    left: 7%;
+
+                    &::before, &::after {
+                        left: 0;
+                        border-left-color: transparent !important;
+                        border-right-color: $background-color;
+                        margin-left: -30px;
+                    }
+                    &::before {
+                        border-right-color: $border-color;
+                        margin-left: -31px;
+                    }
+                }
+            }
+        }
+    }
+}
