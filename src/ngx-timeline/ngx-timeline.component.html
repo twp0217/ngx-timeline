@@ -1,7 +1,7 @@
-<div class="timeline">
+<div class="timeline" [ngClass]="timelineClass" [ngStyle]="timelineStyle">
   <div class="timeline-item" *ngFor="let event of events; index as i">
     <div class="timeline-date">
-      <div *ngIf="!dateTemplate">{{event.date | date:'yyyy-MM-dd'}}</div>
+      <div *ngIf="!dateTemplate">{{event.date | date: dateFormat}}</div>
       <ng-template *ngIf="dateTemplate" [ngTemplateOutlet]="dateTemplate.templateRef" [ngOutletContext]="{ $implicit: event, rowIndex: i }"></ng-template>
     </div>
     <div class="timeline-point" [ngClass]="{'hide-border': event.icon}">

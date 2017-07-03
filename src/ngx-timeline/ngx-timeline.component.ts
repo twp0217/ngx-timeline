@@ -10,6 +10,9 @@ import { TimelineDate, TimelineHeader, TimelineBody, TimelineFooter } from './ng
 })
 export class NgxTimelineComponent implements OnInit {
   @Input() events: Array<TimelineEvent>;
+  @Input() timelineClass: string;
+  @Input() timelineStyle: any;
+  @Input() dateFormat: string = "yyyy-MM-dd";
 
   @ContentChild(TimelineDate) dateTemplate: TimelineDate;
   @ContentChild(TimelineHeader) headerTemplate: TimelineHeader;
