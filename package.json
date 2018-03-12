@@ -1,19 +1,18 @@
 {
   "name": "ngx-timeline",
-  "version": "1.0.1",
+  "version": "5.0.0",
   "description": "A timeline component for Angular 2+",
-  "main": "bundles/ngx-timeline.umd.js",
-  "module": "src/index.js",
-  "typings": "src/index.d.ts",
+  "main": "dist/bundles/ngx-timeline.umd.js",
+  "module": "dist/esm5/ngx-timeline.js",
+  "es2015": "dist/esm2015/ngx-timeline.js",
+  "typings": "dist/ngx-timeline.d.ts",
+  "metadata": "dist/ngx-timeline.metadata.json",
   "scripts": {
-    "ngc": "ngc",
-    "webpack": "webpack",
-    "clean": "rimraf bundles",
-    "webpack:uglify": "webpack --config webpack.config.uglify.js",
+    "clean": "rimraf dist",
     "changelog:init": "conventional-changelog -i CHANGELOG.md -s -p angular -r 0",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
-    "bundles": "npm run clean && npm run webpack && npm run webpack:uglify",
-    "build": "npm run bundles && npm run ngc",
+    "packagr": "ng-packagr",
+    "build": "npm run clean && npm run packagr",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -23,6 +22,7 @@
   "keywords": [
     "angular2",
     "angular4",
+    "angular5",
     "ngx",
     "timeline",
     "ngx-timeline"
@@ -34,19 +34,19 @@
   },
   "homepage": "https://github.com/twp0217/ngx-timeline#readme",
   "devDependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/compiler-cli": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "awesome-typescript-loader": "^3.2.1",
-    "codelyzer": "^3.1.1",
-    "conventional-changelog-cli": "^1.3.1",
-    "rimraf": "^2.6.1",
-    "rxjs": "^5.5.2",
-    "tslint": "~5.7.0",
-    "tslint-loader": "^3.5.3",
-    "typescript": "~2.4.2",
-    "webpack": "^3.0.0",
-    "zone.js": "^0.8.14"
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "codelyzer": "^4.2.1",
+    "conventional-changelog-cli": "^1.3.16",
+    "ng-packagr": "^2.2.0",
+    "rimraf": "^2.6.2",
+    "rxjs": "^5.5.6",
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3",
+    "zone.js": "^0.8.19"
   }
 }
